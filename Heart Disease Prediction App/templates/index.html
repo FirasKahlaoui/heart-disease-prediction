@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Loan Prediction</title>
+    <title>Heart Disease Prediction</title>
     <link
       href="https://fonts.googleapis.com/css?family=Pacifico"
       rel="stylesheet"
@@ -30,41 +30,141 @@
   </head>
   <body>
     <div class="login">
-      <h1>Predict Loan Status</h1>
-      <form action="{{ url_for('predict')}}" method="post">
-        <input
-          type="text"
-          name="Credit_History"
-          placeholder="Credit History (Yes: 1/No: 0)"
-          required="required"
-        />
-        <input
-          type="text"
-          name="Married"
-          placeholder="Married (Yes: 1/No: 0)"
-          required="required"
-        />
-        <input
-          type="text"
-          name="CoapplicantIncome"
-          placeholder="Coapplicant Income"
-          required="required"
-        />
-        <input
-          type="text"
-          name="LoanAmount"
-          placeholder="Loan Amount"
-          required="required"
-        />
-        <button type="submit" class="btn btn-primary btn-block btn-large">
-          Predict
-        </button>
+      <h1>Predict Heart Disease</h1>
+      <form action="{{ url_for('predict') }}" method="post">
+        <div class="form-section">
+          <div>
+            <select name="Smoking" required="required">
+              <option value="" disabled selected>Smoking</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+
+            <select name="AlcoholDrinking" required="required">
+              <option value="" disabled selected>Alcohol Drinking</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+
+            <select name="Stroke" required="required">
+              <option value="" disabled selected>Stroke</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+
+            <select name="DiffWalking" required="required">
+              <option value="" disabled selected>Difficulty Walking</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+
+            <select name="Sex" required="required">
+              <option value="" disabled selected>Sex</option>
+              <option value="0">Female</option>
+              <option value="1">Male</option>
+            </select>
+
+            <select name="Diabetic" required="required">
+              <option value="" disabled selected>Diabetic</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+
+            <select name="PhysicalActivity" required="required">
+              <option value="" disabled selected>Physical Activity</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+
+            <select name="Asthma" required="required">
+              <option value="" disabled selected>Asthma</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+
+            <select name="KidneyDisease" required="required">
+              <option value="" disabled selected>Kidney Disease</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+          </div>
+          <div>
+            <select name="SkinCancer" required="required">
+              <option value="" disabled selected>Skin Cancer</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+            <select name="AgeCategory" required="required">
+              <option value="" disabled selected>Age Category</option>
+              <option value="AgeCategory_18-24">18-24</option>
+              <option value="AgeCategory_25-29">25-29</option>
+              <option value="AgeCategory_30-34">30-34</option>
+              <option value="AgeCategory_35-39">35-39</option>
+              <option value="AgeCategory_40-44">40-44</option>
+              <option value="AgeCategory_45-49">45-49</option>
+              <option value="AgeCategory_50-54">50-54</option>
+              <option value="AgeCategory_55-59">55-59</option>
+              <option value="AgeCategory_60-64">60-64</option>
+              <option value="AgeCategory_65-69">65-69</option>
+              <option value="AgeCategory_70-74">70-74</option>
+              <option value="AgeCategory_75-79">75-79</option>
+              <option value="AgeCategory_80 or older">80 or older</option>
+            </select>
+
+            <select name="GenHealth" required="required">
+              <option value="" disabled selected>General Health</option>
+              <option value="GenHealth_Excellent">Excellent</option>
+              <option value="GenHealth_Very good">Very good</option>
+              <option value="GenHealth_Good">Good</option>
+              <option value="GenHealth_Fair">Fair</option>
+              <option value="GenHealth_Poor">Poor</option>
+            </select>
+
+            <select name="Race" required="required">
+              <option value="" disabled selected>Race</option>
+              <option value="Race_American Indian/Alaskan Native">
+                American Indian/Alaskan Native
+              </option>
+              <option value="Race_Asian">Asian</option>
+              <option value="Race_Black">Black</option>
+              <option value="Race_Hispanic">Hispanic</option>
+              <option value="Race_Other">Other</option>
+              <option value="Race_White">White</option>
+            </select>
+
+            <input
+              type="number"
+              name="BMI"
+              placeholder="BMI"
+              required="required"
+            />
+            <input
+              type="number"
+              name="PhysicalHealth"
+              placeholder="Physical Health"
+              required="required"
+            />
+            <input
+              type="number"
+              name="MentalHealth"
+              placeholder="Mental Health"
+              required="required"
+            />
+            <input
+              type="number"
+              name="SleepTime"
+              placeholder="Sleep Time"
+              required="required"
+            />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-large">Predict</button>
       </form>
       <br />
       <br />
-      <div class="prediction-text">
-        {{ prediction_text }}
-      </div>
+      <div class="prediction-text">{{ prediction_text }}</div>
     </div>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
   </body>
 </html>
