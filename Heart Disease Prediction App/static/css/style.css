@@ -1,26 +1,57 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-input {
+body {
+  font-family: "Poppins", sans-serif;
+  background: url("../background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+input,
+select {
   display: block;
   width: 80%;
-  height: 40px;
+  height: 50px;
   margin: 20px auto;
   background: #f0f0f0;
   border: none;
-  padding: 5px;
+  padding: 10px;
   font-size: 16px;
   border-radius: 25px;
   outline: none;
+  box-sizing: border-box;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23999' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E")
+    no-repeat right 10px center;
+  background-size: 10px 10px;
 }
 
 .login {
   position: absolute;
-  top: 45%;
+  top: 1%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 500px;
-  background: #fff;
+  transform: translateX(-50%);
+  width: 80%;
+  padding: 40px;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.5
+  );
   border-radius: 20px;
   box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.25),
     0px 10px 10px rgba(0, 0, 0, 0.22);
@@ -30,27 +61,23 @@ input {
   color: #333;
   letter-spacing: 1px;
   text-align: center;
-  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
-input {
-  display: block;
-  width: 80%;
-  height: 50px;
-  margin: 20px auto;
-  background: #f0f0f0;
-  border: none;
-  padding: 5px;
-  font-size: 16px;
-  border-radius: 25px;
-  outline: none;
+.form-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-section > div {
+  flex: 1;
 }
 
 .btn {
   display: block;
-  width: 80%;
+  width: 100%;
   height: 50px;
-  margin: 10px auto;
+  margin: 20px auto;
   background: #7b7eff;
   background-image: linear-gradient(to right, #667eea, #764ba2);
   border: none;
@@ -59,6 +86,7 @@ input {
   color: #fff;
   text-transform: uppercase;
   cursor: pointer;
+  transition: background-image 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
@@ -67,15 +95,6 @@ input {
 
 .btn:active {
   transform: scale(0.95);
-}
-
-.btn-primary {
-  background: #667eea;
-  background-image: linear-gradient(to right, #667eea, #764ba2);
-}
-
-.btn-primary:hover {
-  background-image: linear-gradient(to right, #764ba2, #667eea);
 }
 
 .prediction-text {
